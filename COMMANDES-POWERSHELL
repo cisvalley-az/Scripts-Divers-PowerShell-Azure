@@ -1,0 +1,14 @@
+- Lister toutes les ressources associées à une souscription : Get-AzureRmResource | ft
+
+- Supprimer un resource group : Remove-AzureRmResourceGroup -Name "ContosoRG01"
+
+- Lister les VMs :  Get-AzureRmVM
+
+- Arrêter toutes les VM de l'abonnement courant : Get-AzureRmVM | Stop-AzureRmVM -Force
+
+- Démarrer une VM :  Start-AzureRmVM -ResourceGroupName "ResourceGroup11" -Name "VirtualMachine07"
+	* Shutdown/Start VMs (ASM and ARM) by resource group : https://gallery.technet.microsoft.com/scriptcenter/Shutdown-VMs-ASM-and-ARM-4166b862
+
+
+
+
