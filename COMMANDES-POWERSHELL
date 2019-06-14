@@ -4,11 +4,36 @@
 
 - Lister les VMs :  Get-AzureRmVM
 
+- Lister les VM d'un Resource Group : Get-AzureRMVM -ResourceGroupName ResourceGroupCIS_4
+
+- Arrêter une VM dans un Resource Group : Stop-AzureRmVM -ResourceGroupName ResourceGroupCIS_4 -Name VM_Rebond_4
+
+- Arrêter toutes les VMs d'un Resource Group :
+	https://searchwindowsserver.techtarget.com/tip/Azure-PowerShell-cmdlets-monitor-manage-VMs
+
+	Créer un fichier C:\Temp\AzureVMs.txt contenant la liste des VMs.
+
+	$VMFile = "C:\Temp\AzureVMs.txt"
+	$AzureResourceGroup = "AzureRSGroup"
+
+	Foreach ($ThisVM in Get-Content "$VMFile") { Stop-AzureRMVM -ResourceGroupName $AzureResourceGroup -Name "$ThisVM" }
+
 - Arrêter toutes les VM de l'abonnement courant : Get-AzureRmVM | Stop-AzureRmVM -Force
 
 - Démarrer une VM :  Start-AzureRmVM -ResourceGroupName "ResourceGroup11" -Name "VirtualMachine07"
 	* Shutdown/Start VMs (ASM and ARM) by resource group : https://gallery.technet.microsoft.com/scriptcenter/Shutdown-VMs-ASM-and-ARM-4166b862
 
 
+- Lister tous les comptes de stockage : Get-AzureRmStorageAccount
+
+- Avoir de l'aide sur une commande : Get-Help 
+	Exemples : 
+		Get-Help New-AzureRmVM
+
+		Get-Help New-AzureRmVM -Detailed : pour avoir plus de détails sur une applet.
+
+		Get-Help New-AzureRmVM -Full : pour avoir l'aide complète sur une applet.
+	
+		Get-Help New-AzureRmVM -Examples : pour afficher les exemples d'utilisation de l'applet.
 
 
