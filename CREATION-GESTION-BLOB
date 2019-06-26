@@ -1,0 +1,21 @@
+=== CREATION-GESTION-BLOB :
+
+URL de ref : https://docs.microsoft.com/fr-fr/azure/storage/blobs/storage-quickstart-blobs-powershell
+
+
+- Connexion à Azure Get-Location | select Location
+$Location_Blob = "francecentral"
+
+- Créer un groupe de ressources : $resourceGroup_Blob = "myResourceGroupBlob"
+New-AzureRmResourceGroup -Name $resourceGroup_Blob -Location $Location_Blob
+
+- Créez un compte de stockage : 
+$storageAccount_Blob = New-AzureRMStorageAccount -ResourceGroupName $resourceGroup_Blob -Name "mystorageaccountblobarpa" -SkuName Standard_LRS -Location $Location_Blob
+$contexte_Blob = $storageAccount_Blob.Context
+
+- Créez un conteneur : 
+Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur.
+Définissez le nom du conteneur, puis créez le conteneur.
+
+$containerNameBlob = "conteneurblobarpa"
+New-AzureStorageContainer -Name $containerNameBlob -Context $contexte_Blob -Permission Blob
